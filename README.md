@@ -1,6 +1,6 @@
 # Food Suggestion App :avocado: :potato: :garlic: :spaghetti: :cookie:
  
- As part from mobile application course in my Uni I create an app using Kotlin.
+ As part of Mobile application course in my Uni I create an app using Kotlin.
  
  You can choose Kitchen's Type then App will suggest you the best dishes in that kitchen 
 
