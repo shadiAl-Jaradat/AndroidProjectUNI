@@ -2,18 +2,15 @@ package com.example.androidproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import android.widget.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
-        this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        supportActionBar?.hide()
         setContentView(R.layout.activity_main)
 
         val chineseMealFragment = ShowChineseMeal()
@@ -66,4 +63,23 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.first_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.item1 -> {
+                val dialogVarAboutUs = AboutUsDialogClass()
+                dialogVarAboutUs.show(supportFragmentManager, "Custom Dialog")
+            }
+            R.id.item2 -> {
+                val dialogVarBmi = BmiCalcDialogClass()
+                dialogVarBmi.show(supportFragmentManager, "Custom Dialog")
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }
